@@ -2,6 +2,5 @@
 *
 * Include :
 *
-* - TweenMax.min.js
 *
 * */

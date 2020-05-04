@@ -22,16 +22,16 @@
  */
 var initPreventBehavior = function initPreventBehavior() {
 
-	var link = document.querySelectorAll("a");
+  var link = document.querySelectorAll("a");
 
-	link.forEach(function (val, idx) {
+  link.forEach(function (val, idx) {
 
-		val.addEventListener("click", function (e) {
-			if (val.getAttribute("href") === "#") {
-				e.preventDefault();
-			}
-		});
-	});
+    val.addEventListener("click", function (e) {
+      if (val.getAttribute("href") === "#") {
+        e.preventDefault();
+      }
+    });
+  });
 };
 
 /**
@@ -41,7 +41,7 @@ var initPreventBehavior = function initPreventBehavior() {
  */
 var initSvg4everybody = function initSvg4everybody() {
 
-	svg4everybody();
+  svg4everybody();
 };
 
 /**
@@ -51,76 +51,53 @@ var initSvg4everybody = function initSvg4everybody() {
  */
 var initWebFontLoader = function initWebFontLoader() {
 
-	/**
-   * @description
-  */
-	WebFont.load({
-		google: {
-			families: ['Roboto:100,300,400,500,700,900']
-		}
-	});
+  /**
+    * @description
+   */
+  WebFont.load({
+    google: {
+      families: ['Roboto:100,300,400,500,700,900']
+    }
+  });
 
-	/**
-   * @description
-  */
-	// const WebFontConfig = {
-	//   custom: {
-	//     families: [
-	//       'Lato:n1,n3,n4,n5,n6,n7,n9'
-	//     ]
-	//   }
-	// };
+  /**
+    * @description
+   */
+  // const WebFontConfig = {
+  //   custom: {
+  //     families: [
+  //       'Lato:n1,n3,n4,n5,n6,n7,n9'
+  //     ]
+  //   }
+  // };
 };
 /**
  * @description Document DOM ready.
  */
 (function () {
-	/*
- * =============================================
- * CALLBACK :: start
- * ============================================= */
-	var loaderAnimation = function loaderAnimation() {
-		var tl = new TimelineMax({
-			repeat: -1,
-			yoyo: true
-		});
+  /*
+  * =============================================
+  * CALLBACK :: start
+  * ============================================= */
+  /*
+  * CALLBACK :: end
+  * ============================================= */
 
-		tl.set(document.getElementById('loader-spin__circle'), {
-			'transformOrigin': 'center'
-		});
+  /**
+   * @name initNative
+   *
+   * @description Init all method
+   */
+  var initNative = function initNative() {
+    // default
+    initPreventBehavior();
+    // ==========================================
 
-		tl.to(document.getElementById('loader-spin__line-1'), 1, { x: -10, ease: Power1.easeInOut }).to(document.getElementById('loader-spin__line-2'), 1, { x: -5, ease: Power1.easeInOut }, '-=1');
+    // lib
+    // ==========================================
 
-		tl.to(document.getElementById('loader-spin__line-3'), 1, { x: 5, ease: Power1.easeInOut }, '-=1').to(document.getElementById('loader-spin__line-4'), 1, { x: 10, ease: Power1.easeInOut }, '-=1');
-
-		tl.to(document.getElementById('loader-spin__line-5'), 1, { x: 10, ease: Power1.easeInOut }, '-=1').to(document.getElementById('loader-spin__line-6'), 1, { x: 5, ease: Power1.easeInOut }, '-=1').to(document.getElementById('loader-spin__line-7'), 1, { x: 10, ease: Power1.easeInOut }, '-=1');
-
-		tl.to(document.getElementById('loader-spin__line-8'), 1, { x: -10, ease: Power1.easeInOut }, '-=1').to(document.getElementById('loader-spin__line-9'), 1, { x: -5, ease: Power1.easeInOut }, '-=1');
-
-		tl.to(document.getElementById('loader-spin__circle'), 1, { x: -10, scale: 0.8, ease: Power1.easeInOut }, '-=1').to(document.getElementById('loader-spin__arrow'), 1, { x: -10, ease: Power1.easeInOut }, '-=1');
-
-		// tl.staggerTo(document.querySelectorAll('#loader-text span'), 0.5, {opacity: 1})
-	};
-	/*
- * CALLBACK :: end
- * ============================================= */
-
-	/**
-  * @name initNative
-  *
-  * @description Init all method
-  */
-	var initNative = function initNative() {
-		// default
-		initPreventBehavior();
-		// ==========================================
-
-		// lib
-		// ==========================================
-
-		// callback
-		loaderAnimation();
-		// ==========================================
-	};
-	initNative();
+    // callback
+    // ==========================================
+  };
+  initNative();
 })();

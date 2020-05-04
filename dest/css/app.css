@@ -179,6 +179,9 @@ picture {
 /* line 3, src/scss/_components/_loader.scss */
 .loader {
   overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1500;
   position: fixed;
   top: 0;
   left: 0;
@@ -197,25 +200,160 @@ picture {
   width: 100vw;
   height: 100vh;
   background-color: #1d1e31;
-}
-
-/* line 15, src/scss/_components/_loader.scss */
-.loader svg#right_arrow {
   -webkit-transform-origin: center;
       -ms-transform-origin: center;
           transform-origin: center;
-  stroke-dasharray: 227;
-  stroke-dashoffset: 227;
-  -webkit-animation-name: rotate;
-          animation-name: rotate;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transition: opacity 0.35s ease-in-out, visibility 0.35s ease-in-out;
+  -o-transition: opacity 0.35s ease-in-out, visibility 0.35s ease-in-out;
+  transition: opacity 0.35s ease-in-out, visibility 0.35s ease-in-out;
+}
+
+/* line 21, src/scss/_components/_loader.scss */
+.loader.is-start {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: opacity 0.35s ease-in-out, visibility 0.35s ease-in-out;
+  -o-transition: opacity 0.35s ease-in-out, visibility 0.35s ease-in-out;
+  transition: opacity 0.35s ease-in-out, visibility 0.35s ease-in-out;
+}
+
+/* line 27, src/scss/_components/_loader.scss */
+.loader.is-start svg#circle {
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+
+/* line 32, src/scss/_components/_loader.scss */
+.loader.is-start svg#wobble path,
+.loader.is-start svg#wobble circle {
+  -webkit-animation-play-state: running;
+          animation-play-state: running;
+}
+
+/* line 41, src/scss/_components/_loader.scss */
+.loader svg#circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -80px;
+  margin-top: -80px;
+  -webkit-transform-origin: center;
+      -ms-transform-origin: center;
+          transform-origin: center;
+  stroke-dasharray: 377;
+  stroke-dashoffset: 377;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  transform-origin: center;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
-  -webkit-animation-duration: 1.5s;
-          animation-duration: 1.5s;
+  -webkit-animation-name: rotate;
+          animation-name: rotate;
+  -webkit-animation-duration: 2.5s;
+          animation-duration: 2.5s;
   -webkit-animation-direction: alternate;
           animation-direction: alternate;
-  -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+/* line 60, src/scss/_components/_loader.scss */
+.loader svg#wobble {
+  -webkit-transform: scale(0.8);
+      -ms-transform: scale(0.8);
+          transform: scale(0.8);
+}
+
+/* line 63, src/scss/_components/_loader.scss */
+.loader svg#wobble path,
+.loader svg#wobble circle {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform-origin: center;
+      -ms-transform-origin: center;
+          transform-origin: center;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-duration: 2.2s;
+          animation-duration: 2.2s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+/* line 77, src/scss/_components/_loader.scss */
+.loader #loader-spin__line-1 {
+  -webkit-animation-name: transformX-10;
+          animation-name: transformX-10;
+}
+
+/* line 78, src/scss/_components/_loader.scss */
+.loader #loader-spin__line-2 {
+  -webkit-animation-name: transformX-5;
+          animation-name: transformX-5;
+}
+
+/* line 79, src/scss/_components/_loader.scss */
+.loader #loader-spin__line-3 {
+  -webkit-animation-name: transformX5;
+          animation-name: transformX5;
+}
+
+/* line 80, src/scss/_components/_loader.scss */
+.loader #loader-spin__line-4 {
+  -webkit-animation-name: transformX10;
+          animation-name: transformX10;
+}
+
+/* line 81, src/scss/_components/_loader.scss */
+.loader #loader-spin__line-5 {
+  -webkit-animation-name: transformX10;
+          animation-name: transformX10;
+}
+
+/* line 82, src/scss/_components/_loader.scss */
+.loader #loader-spin__line-6 {
+  -webkit-animation-name: transformX5;
+          animation-name: transformX5;
+}
+
+/* line 83, src/scss/_components/_loader.scss */
+.loader #loader-spin__line-7 {
+  -webkit-animation-name: transformX10;
+          animation-name: transformX10;
+}
+
+/* line 84, src/scss/_components/_loader.scss */
+.loader #loader-spin__line-8 {
+  -webkit-animation-name: transformX-10;
+          animation-name: transformX-10;
+}
+
+/* line 85, src/scss/_components/_loader.scss */
+.loader #loader-spin__line-9 {
+  -webkit-animation-name: transformX-5;
+          animation-name: transformX-5;
+}
+
+/* line 86, src/scss/_components/_loader.scss */
+.loader #loader-spin__arrow {
+  -webkit-animation-name: transformX-10;
+          animation-name: transformX-10;
+}
+
+/* line 87, src/scss/_components/_loader.scss */
+.loader #loader-spin__circle {
+  -webkit-animation-name: scaleCircle;
+          animation-name: scaleCircle;
 }
 
 @-webkit-keyframes rotate {
@@ -239,6 +377,156 @@ picture {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
     stroke-dashoffset: 0;
+  }
+}
+
+@-webkit-keyframes transformX-10 {
+  from {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  50% {
+    -webkit-transform: translateX(-10px);
+            transform: translateX(-10px);
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes transformX-10 {
+  from {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  50% {
+    -webkit-transform: translateX(-10px);
+            transform: translateX(-10px);
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes transformX-5 {
+  from {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  50% {
+    -webkit-transform: translateX(-5px);
+            transform: translateX(-5px);
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes transformX-5 {
+  from {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  50% {
+    -webkit-transform: translateX(-5px);
+            transform: translateX(-5px);
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes transformX10 {
+  from {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  50% {
+    -webkit-transform: translateX(10px);
+            transform: translateX(10px);
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes transformX10 {
+  from {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  50% {
+    -webkit-transform: translateX(10px);
+            transform: translateX(10px);
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes transformX5 {
+  from {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  50% {
+    -webkit-transform: translateX(5px);
+            transform: translateX(5px);
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes transformX5 {
+  from {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  50% {
+    -webkit-transform: translateX(5px);
+            transform: translateX(5px);
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes scaleCircle {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes scaleCircle {
+  from {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
 }
 

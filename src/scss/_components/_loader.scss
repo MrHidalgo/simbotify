@@ -2,6 +2,9 @@
 
 .loader {
 	overflow: hidden;
+	opacity: 0;
+	visibility: hidden;
+	z-index: 1500;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -11,28 +14,110 @@
 	width: 100vw;
 	height: 100vh;
 	background-color: #1d1e31;
+	transform-origin: center;
+	backface-visibility: hidden;
+	@include transition(opacity, visibility);
 
-	svg#right_arrow {
-		transform-origin: center;
-		stroke-dasharray: 227;
-		stroke-dashoffset: 227;
-		//animation-iteration-count: infinite;
-		animation-name: rotate;
-		animation-fill-mode: both;
-		animation-duration: 1.5s;
-		animation-direction: alternate;
-		animation-timing-function: linear;
+	&.is-start {
+		opacity: 1;
+		visibility: visible;
+		@include transition(opacity, visibility);
+
+		svg {
+			&#circle {
+				animation-play-state: running;
+			}
+
+			&#wobble {
+				path,
+				circle {
+					animation-play-state: running;
+				}
+			}
+		}
 	}
+
+	svg {
+		&#circle {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-left: -80px;
+			margin-top: -80px;
+			transform-origin: center;
+			stroke-dasharray: 377; // 2 * Pi * R
+			stroke-dashoffset: 377;
+			backface-visibility: hidden;
+			transform-origin: center;
+			animation-fill-mode: both;
+			animation-name: rotate;
+			animation-duration: 2.5s;
+			animation-direction: alternate;
+			animation-timing-function: ease-in-out;
+			animation-play-state: paused;
+		}
+
+		&#wobble {
+			transform: scale(0.8);
+
+			path,
+			circle {
+				backface-visibility: hidden;
+				transform-origin: center;
+				animation-fill-mode: both;
+				animation-direction: alternate;
+				animation-duration: 2.2s;
+				animation-iteration-count: infinite;
+				animation-timing-function: ease-in-out;
+				animation-play-state: paused;
+			}
+		}
+	}
+
+	#loader-spin__line-1 {animation-name: transformX-10;}
+	#loader-spin__line-2 {animation-name: transformX-5;}
+	#loader-spin__line-3 {animation-name: transformX5;}
+	#loader-spin__line-4 {animation-name: transformX10;}
+	#loader-spin__line-5 {animation-name: transformX10;}
+	#loader-spin__line-6 {animation-name: transformX5;}
+	#loader-spin__line-7 {animation-name: transformX10;}
+	#loader-spin__line-8 {animation-name: transformX-10;}
+	#loader-spin__line-9 {animation-name: transformX-5;}
+	#loader-spin__arrow {animation-name: transformX-10;}
+	#loader-spin__circle {animation-name: scaleCircle;}
 }
 
 @keyframes rotate {
-	from {
-		transform: rotate(0);
-	}
+	from {transform: rotate(0);}
 	to {
 		transform: rotate(360deg);
 		stroke-dashoffset: 0;
 	}
+}
+@keyframes transformX-10 {
+	from {transform: translateX(0);}
+	50% {transform: translateX(-10px);}
+	to {transform: translateX(0);}
+}
+@keyframes transformX-5 {
+	from {transform: translateX(0);}
+	50% {transform: translateX(-5px);}
+	to {transform: translateX(0);}
+}
+@keyframes transformX10 {
+	from {transform: translateX(0);}
+	50% {transform: translateX(10px);}
+	to {transform: translateX(0);}
+}
+@keyframes transformX5 {
+	from {transform: translateX(0);}
+	50% {transform: translateX(5px);}
+	to {transform: translateX(0);}
+}
+@keyframes scaleCircle {
+	from {transform: scale(1);}
+	50% {transform: scale(0.8);}
+	to {transform: scale(1);}
 }
 
 // SECTION :: END
