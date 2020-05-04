@@ -200,24 +200,46 @@ picture {
 }
 
 /* line 15, src/scss/_components/_loader.scss */
-.loader svg {
-  width: 139px;
-  height: 111px;
+.loader svg#right_arrow {
+  -webkit-transform-origin: center;
+      -ms-transform-origin: center;
+          transform-origin: center;
+  stroke-dasharray: 227;
+  stroke-dashoffset: 227;
+  -webkit-animation-name: rotate;
+          animation-name: rotate;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
 }
 
-/* line 20, src/scss/_components/_loader.scss */
-.loader p {
-  color: #ffffff;
-  text-transform: uppercase;
-  line-height: 1;
-  font-size: 28px;
-  font-weight: 600;
-  letter-spacing: 2px;
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    stroke-dashoffset: 0;
+  }
 }
 
-/* line 28, src/scss/_components/_loader.scss */
-.loader p span {
-  opacity: 0.25;
+@keyframes rotate {
+  from {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    stroke-dashoffset: 0;
+  }
 }
 
 /*# sourceMappingURL=maps/app.css.map */

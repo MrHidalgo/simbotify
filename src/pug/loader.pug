@@ -11,7 +11,13 @@ block footer
 block content
 
 	#loader.loader
-		svg(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', viewBox='0 0 139 111', version='1.1')
+		svg#right_arrow.direction__right.direction__item(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', width='80px', height='80px', viewBox='0 0 80 80', xml:space='preserve')
+			//polygon.ring.offset-colour(points='32.5,52 47.5,40 32.5,28')
+			circle(cx='40', cy='40', r='36', fill='transparent', stroke='none', stroke-width='2')
+			circle.circle(cx='40', cy='40', r='36', fill='transparent', stroke='white', stroke-width='4')
+
+
+		//svg(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', width='139' height='111' viewBox='0 0 139 111', version='1.1')
 			g#Page-1(stroke='none', stroke-width='1', fill='none', fill-rule='evenodd')
 				g#loader-spin
 					rect#Rectangle(fill='none', x='0', y='0', width='139', height='111')
@@ -26,5 +32,3 @@ block content
 					path#loader-spin__line-7(d='M91.1551933,74.616 L66.2967298,74.616 C64.6687678,74.616 63.349359,75.922125 63.349359,77.532 C63.349359,79.1426343 64.6687678,80.448 66.2967298,80.448 L91.1551933,80.448 C92.7831551,80.448 94.1025641,79.1426343 94.1025641,77.532 C94.1025641,75.922125 92.7831551,74.616 91.1551933,74.616 Z', fill='#FFFFFF', fill-rule='nonzero')
 					path#loader-spin__line-6(d='M56.4638995,80.448 C58.1213971,80.448 59.4647436,79.1426343 59.4647436,77.532 C59.4647436,75.922125 58.1213971,74.616 56.4638995,74.616 L51.7828954,74.616 C50.1253979,74.616 48.7820513,75.922125 48.7820513,77.532 C48.7820513,79.1426343 50.1253979,80.448 51.7828954,80.448 L56.4638995,80.448 Z', fill='#FFFFFF', fill-rule='nonzero')
 					path#loader-spin__line-9(d='M90.1305662,90.168 L85.449562,90.168 C83.7920646,90.168 82.4487179,91.4733657 82.4487179,93.084 C82.4487179,94.6946343 83.7920646,96 85.449562,96 L90.1305662,96 C91.7872822,96 93.1314103,94.6946343 93.1314103,93.084 C93.1314103,91.4733657 91.7872822,90.168 90.1305662,90.168 Z', fill='#FFFFFF', fill-rule='nonzero')
-
-		//p#loader-text!= "<span>S</span><span>i</span><span>m</span><span>b</span><span>o</span><span>t</span><span>i</span><span>f</span><span>y</span>"

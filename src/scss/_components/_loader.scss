@@ -12,22 +12,26 @@
 	height: 100vh;
 	background-color: #1d1e31;
 
-	svg {
-		width: 139px;
-		height: 111px;
+	svg#right_arrow {
+		transform-origin: center;
+		stroke-dasharray: 227;
+		stroke-dashoffset: 227;
+		//animation-iteration-count: infinite;
+		animation-name: rotate;
+		animation-fill-mode: both;
+		animation-duration: 1.5s;
+		animation-direction: alternate;
+		animation-timing-function: linear;
 	}
+}
 
-	p {
-		color: #ffffff;
-		text-transform: uppercase;
-		line-height: 1;
-		font-size: 28px;
-		font-weight: 600;
-		letter-spacing: 2px;
-
-		span {
-			opacity: 0.25;
-		}
+@keyframes rotate {
+	from {
+		transform: rotate(0);
+	}
+	to {
+		transform: rotate(360deg);
+		stroke-dashoffset: 0;
 	}
 }
 
