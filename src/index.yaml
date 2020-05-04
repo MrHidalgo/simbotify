@@ -1,0 +1,6 @@
+ProjectTitle: Simbotify
+
+PageList:
+- file: loader.html
+  titleName: Loader
+  ready: 1
